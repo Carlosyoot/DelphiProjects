@@ -15,14 +15,20 @@ object MainScreen: TMainScreen
   TextHeight = 15
   object Label2: TLabel
     Left = 32
-    Top = 269
-    Width = 560
-    Height = 60
+    Top = 197
+    Width = 570
+    Height = 114
     Caption = 
-      'ESTE '#201' UM PROJETO DE ESTOQUE FEITO EM PASCAL - DELPHI, '#201' MEU PRI' +
-      'MEIRO PROJETO USANDO DELPHI'#13#10'COMO LINGUAGEM DE PROGRAMA'#199#195'O. ESTO' +
-      'U ABERTO PARA DICAS E FORMAS'#13#10'DE MELHORAR MINHA VIS'#195'O SOBRE ESTA' +
-      ' LINGUAGEM'#13#10' '
+      'ESTE '#201' UM PROJETO DE ESTOQUE FEITO EM PASCAL - DELPHI, '#201' '#13#10'MEU P' +
+      'RIMEIRO PROJETO USANDO DELPHI'#13#10'COMO LINGUAGEM DE PROGRAMA'#199#195'O. '#13#10 +
+      'ESTOU ABERTO PARA DICAS E FORMAS'#13#10'DE MELHORAR MINHA VIS'#195'O SOBRE ' +
+      'ESTA LINGUAGEM'#13#10' '
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Unispace'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Panel1: TPanel
     Left = 32
