@@ -1,0 +1,14 @@
+﻿[Label1]
+Coordinates=114,10,46,51
+
+[]
+Coordinates=111,80,82,33
+
+[Module Settings]
+ModelLayerNames=hello;"border: 1px solid #black;"
+
+[navigator]
+Coordinates=10,10,82,51
+Visible=True
+LayerNames=
+
