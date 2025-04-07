@@ -3,7 +3,7 @@ object MainScreen: TMainScreen
   Top = 0
   Caption = 'Sistema de Controle de Estoque'
   ClientHeight = 441
-  ClientWidth = 624
+  ClientWidth = 629
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,9 +13,17 @@ object MainScreen: TMainScreen
   Menu = MainMenu1
   WindowState = wsMaximized
   TextHeight = 15
+  object Panel1: TPanel
+    Left = 32
+    Top = 80
+    Width = 561
+    Height = 41
+    Caption = 'Panel1'
+    TabOrder = 0
+  end
   object MainMenu1: TMainMenu
-    Left = 24
-    Top = 48
+    Left = 512
+    Top = 40
     object Sistema1: TMenuItem
       Caption = 'Sistema'
       object Sistema2: TMenuItem

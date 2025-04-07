@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls;
 
 type
   TMainScreen = class(TForm)
@@ -16,6 +16,7 @@ type
     CadastrarProduto1: TMenuItem;
     GerenciarMovimentaes1: TMenuItem;
     ConsultarMovimentaes1: TMenuItem;
+    Panel1: TPanel;
     procedure Sistema2Click(Sender: TObject);
     procedure CadastrarProduto1Click(Sender: TObject);
     procedure ConsultarMovimentaes1Click(Sender: TObject);

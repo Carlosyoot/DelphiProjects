@@ -194,12 +194,67 @@ object DataModule1: TDataModule1
     Connection = conexao
     SQL.Strings = (
       'SELECT * FROM movimentacoes;')
-    Left = 192
-    Top = 216
+    Left = 208
+    Top = 200
+    ParamData = <
+      item
+        Name = 'pDataInicial'
+      end
+      item
+        Name = 'pDataFinal'
+      end>
   end
   object dsMovimentacoes: TDataSource
     DataSet = sqlMovimentacoes
-    Left = 200
-    Top = 288
+    Left = 208
+    Top = 272
+  end
+  object sqlMovimentacoesFLT: TFDQuery
+    Active = True
+    BeforeDelete = sqlMovimentacoesBeforeDelete
+    IndexFieldNames = 'idMovimentacao'
+    MasterSource = dsMovimentacoes
+    MasterFields = 'id'
+    Connection = conexao
+    SQL.Strings = (
+      'SELECT * FROM movimentacoes_produto')
+    Left = 328
+    Top = 200
+    object sqlMovimentacoesFLTid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = False
+    end
+    object sqlMovimentacoesFLTidMovimentacao: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idMovimentacao'
+      Origin = 'idMovimentacao'
+    end
+    object sqlMovimentacoesFLTidProduto: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idProduto'
+      Origin = 'idProduto'
+    end
+    object sqlMovimentacoesFLTquantidade: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+    object sqlMovimentacoesFLTnomeProduto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nomeProduto'
+      LookupDataSet = tdProduto
+      LookupKeyFields = 'id'
+      LookupResultField = 'nome'
+      KeyFields = 'idProduto'
+      Size = 50
+      Lookup = True
+    end
+  end
+  object dsMovimentacoesFLT: TDataSource
+    DataSet = sqlMovimentacoesFLT
+    Left = 328
+    Top = 272
   end
 end

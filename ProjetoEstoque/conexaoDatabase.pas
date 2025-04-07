@@ -39,6 +39,13 @@ type
     tdMovimentacaoProdutoidProduto: TIntegerField;
     tdMovimentacaoProdutoquantidade: TIntegerField;
     tdMovimentacaoProdutonomeProduto: TStringField;
+    sqlMovimentacoesFLT: TFDQuery;
+    dsMovimentacoesFLT: TDataSource;
+    sqlMovimentacoesFLTid: TFDAutoIncField;
+    sqlMovimentacoesFLTidMovimentacao: TIntegerField;
+    sqlMovimentacoesFLTidProduto: TIntegerField;
+    sqlMovimentacoesFLTquantidade: TIntegerField;
+    sqlMovimentacoesFLTnomeProduto: TStringField;
     procedure tdMovimentacaoProdutoAfterPost(DataSet: TDataSet);
     procedure tdMovimentacaoProdutoAfterDelete(DataSet: TDataSet);
     procedure CalcularTotais;
@@ -85,7 +92,7 @@ end;
 
 procedure TDataModule1.sqlMovimentacoesBeforeDelete(DataSet: TDataSet);
 begin
-  if (tdMovimentacaoProduto.FieldByName('tipo').Value = 'Entrada no Estoque') then
+  if (tdMovimentacao.FieldByName('tipo').Value = 'Entrada no Estoque') then
 
     begin
       sqlDiminuirEstoque.ParamByName('pId').Value := tdMovimentacaoProduto.FieldByName('idProduto').Value;
@@ -93,7 +100,7 @@ begin
       sqlDiminuirEstoque.Execute;
     end;
 
-  if (tdMovimentacaoProduto.FieldByName('tipo').Value = 'Saída de Estoque') then
+  if (tdMovimentacao.FieldByName('tipo').Value = 'Saída de Estoque') then
 
     begin
       sqlAumentarEstoque.ParamByName('pId').Value := tdMovimentacaoProduto.FieldByName('idProduto').Value;
@@ -122,7 +129,7 @@ procedure TDataModule1.tdMovimentacaoProdutoAfterPost(DataSet: TDataSet);
 begin
   CalcularTotais;
 
-  if (tdMovimentacaoProduto.FieldByName('tipo').Value = 'Entrada no Estoque') then
+  if (tdMovimentacao.FieldByName('tipo').Value = 'Entrada no Estoque') then
 
     begin
       sqlAumentarEstoque.ParamByName('pId').Value := tdMovimentacaoProduto.FieldByName('idProduto').Value;
@@ -130,7 +137,7 @@ begin
       sqlAumentarEstoque.Execute;
     end;
 
-  if (tdMovimentacaoProduto.FieldByName('tipo').Value = 'Saída de Estoque') then
+  if (tdMovimentacao.FieldByName('tipo').Value = 'Saída de Estoque') then
 
     begin
       sqlDiminuirEstoque.ParamByName('pId').Value := tdMovimentacaoProduto.FieldByName('idProduto').Value;
