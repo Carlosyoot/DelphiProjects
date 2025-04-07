@@ -3,13 +3,15 @@ object RegisterActionsScreen: TRegisterActionsScreen
   Top = 0
   Caption = 'Cadastro de movimenta'#231#245'es'
   ClientHeight = 536
-  ClientWidth = 817
+  ClientWidth = 1212
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
+  OnShow = FormShow
   TextHeight = 15
   object Label1: TLabel
     Left = 24
@@ -74,6 +76,70 @@ object RegisterActionsScreen: TRegisterActionsScreen
     Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Style = []
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 864
+    Top = 478
+    Width = 201
+    Height = 25
+    Caption = 'TOTAL DE PRODUTOS: '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 864
+    Top = 151
+    Width = 125
+    Height = 21
+    Caption = 'Escolha o Produto'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 1054
+    Top = 151
+    Width = 81
+    Height = 21
+    Caption = 'Quantidade'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 864
+    Top = 40
+    Width = 240
+    Height = 19
+    Caption = 'Produtos da movimenta'#231#227'o'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Unispace'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object TotalTXT: TLabel
+    Left = 1071
+    Top = 478
+    Width = 33
+    Height = 25
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object DBComboBox1: TDBComboBox
@@ -152,9 +218,9 @@ object RegisterActionsScreen: TRegisterActionsScreen
   end
   object DBGrid1: TDBGrid
     Left = 400
-    Top = 147
+    Top = 178
     Width = 409
-    Height = 356
+    Height = 325
     DataSource = DataModule1.dsMovimentacao
     TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
@@ -197,6 +263,74 @@ object RegisterActionsScreen: TRegisterActionsScreen
         Title.Font.Name = 'Segoe UI'
         Title.Font.Style = [fsBold]
         Width = 171
+        Visible = True
+      end>
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 863
+    Top = 178
+    Width = 169
+    Height = 23
+    DataField = 'idProduto'
+    DataSource = DataModule1.dsMovimentacaoProduto
+    KeyField = 'id'
+    ListField = 'nome'
+    ListSource = DataModule1.dsProduto
+    TabOrder = 6
+  end
+  object DBEdit3: TDBEdit
+    Left = 1054
+    Top = 178
+    Width = 130
+    Height = 23
+    DataField = 'quantidade'
+    DataSource = DataModule1.dsMovimentacaoProduto
+    TabOrder = 7
+  end
+  object DBNavigator2: TDBNavigator
+    Left = 863
+    Top = 96
+    Width = 168
+    Height = 33
+    DataSource = DataModule1.dsMovimentacaoProduto
+    VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+    TabOrder = 8
+  end
+  object DBGrid2: TDBGrid
+    Left = 864
+    Top = 216
+    Width = 320
+    Height = 249
+    DataSource = DataModule1.dsMovimentacaoProduto
+    TabOrder = 9
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'nomeProduto'
+        Title.Caption = 'PRODUTO'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = [fsBold]
+        Width = 197
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'quantidade'
+        Title.Caption = 'QUANTIDADE'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = [fsBold]
+        Width = 97
         Visible = True
       end>
   end

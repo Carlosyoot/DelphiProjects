@@ -20,6 +20,7 @@ type
     DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
     da: TDBGrid;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,5 +35,10 @@ implementation
 {$R *.dfm}
 
 uses conexaoDatabase;
+
+procedure TRegisterProductScreen.FormShow(Sender: TObject);
+begin
+  DataModule1.tdProduto.Refresh;
+end;
 
 end.

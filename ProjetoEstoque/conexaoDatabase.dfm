@@ -57,14 +57,52 @@ object DataModule1: TDataModule1
     end
   end
   object tdMovimentacaoProduto: TFDTable
+    Active = True
+    AfterPost = tdMovimentacaoProdutoAfterPost
+    AfterDelete = tdMovimentacaoProdutoAfterDelete
+    IndexName = 'idMovimentacao'
+    MasterSource = dsMovimentacao
+    MasterFields = 'id'
     Connection = conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = 'movimentacoes_produto'
     Left = 400
     Top = 32
+    object tdMovimentacaoProdutoid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ReadOnly = False
+    end
+    object tdMovimentacaoProdutoidMovimentacao: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idMovimentacao'
+      Origin = 'idMovimentacao'
+    end
+    object tdMovimentacaoProdutoidProduto: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idProduto'
+      Origin = 'idProduto'
+    end
+    object tdMovimentacaoProdutoquantidade: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+    object tdMovimentacaoProdutonomeProduto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nomeProduto'
+      LookupDataSet = tdProduto
+      LookupKeyFields = 'id'
+      LookupResultField = 'nome'
+      KeyFields = 'idProduto'
+      Size = 50
+      Lookup = True
+    end
   end
   object tdMovimentacao: TFDTable
     Active = True
+    BeforeDelete = tdMovimentacaoBeforeDelete
+    AfterScroll = tdMovimentacaoProdutoAfterPost
     IndexFieldNames = 'id'
     Connection = conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]
@@ -116,30 +154,43 @@ object DataModule1: TDataModule1
   end
   object sqlAumentarEstoque: TFDCommand
     Connection = conexao
+    CommandText.Strings = (
+      
+        'UPDATE produtos SET estoqueAtual = estoqueAtual + :pQtd WHERE id' +
+        ' = :pId')
     ParamData = <
       item
-        Name = 'pId'
+        Name = 'pQtd'
+        ParamType = ptInput
       end
       item
-        Name = 'pQtd'
+        Name = 'pId'
+        ParamType = ptInput
       end>
     Left = 56
     Top = 200
   end
   object sqlDiminuirEstoque: TFDCommand
     Connection = conexao
+    CommandText.Strings = (
+      
+        'UPDATE produtos SET estoqueAtual = estoqueAtual - :pQtd WHERE id' +
+        ' = :pId')
     ParamData = <
       item
-        Name = 'pId'
+        Name = 'pQtd'
+        ParamType = ptInput
       end
       item
-        Name = 'pQtd'
+        Name = 'pId'
+        ParamType = ptInput
       end>
     Left = 56
     Top = 264
   end
   object sqlMovimentacoes: TFDQuery
     Active = True
+    BeforeDelete = sqlMovimentacoesBeforeDelete
     Connection = conexao
     SQL.Strings = (
       'SELECT * FROM movimentacoes;')

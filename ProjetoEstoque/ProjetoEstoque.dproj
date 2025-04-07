@@ -129,6 +129,23 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="telaCadastroProduto.pas">
+            <Form>RegisterProductScreen</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="telaCadastroMovimentacoes.pas">
+            <Form>RegisterActionsScreen</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="telaConsultaMovimentacoes.pas">
+            <Form>ConsultActionsScreen</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="conexaoDatabase.pas">
+            <Form>DataModule1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
