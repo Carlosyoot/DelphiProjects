@@ -13,12 +13,29 @@ object MainScreen: TMainScreen
   Menu = MainMenu1
   WindowState = wsMaximized
   TextHeight = 15
+  object Label2: TLabel
+    Left = 32
+    Top = 269
+    Width = 560
+    Height = 60
+    Caption = 
+      'ESTE '#201' UM PROJETO DE ESTOQUE FEITO EM PASCAL - DELPHI, '#201' MEU PRI' +
+      'MEIRO PROJETO USANDO DELPHI'#13#10'COMO LINGUAGEM DE PROGRAMA'#199#195'O. ESTO' +
+      'U ABERTO PARA DICAS E FORMAS'#13#10'DE MELHORAR MINHA VIS'#195'O SOBRE ESTA' +
+      ' LINGUAGEM'#13#10' '
+  end
   object Panel1: TPanel
     Left = 32
-    Top = 80
+    Top = 40
     Width = 561
-    Height = 41
-    Caption = 'Panel1'
+    Height = 73
+    Caption = 'CONTROLE DE ESTOQUE -  PASCAL'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Unispace'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 0
   end
   object MainMenu1: TMainMenu
